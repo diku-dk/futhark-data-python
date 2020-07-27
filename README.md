@@ -8,7 +8,7 @@ easy to write Python scripts that use Python libraries convert complex
 formats (e.g. images, audio) into Futhark test data.  It provides
 functions that convert between Numpy values and textual/binary
 representations in the Futhark formats.  Comments are supported.
-**Beware:** reading and writing the binary data format is very slow.
+**Beware:** reading and writing the textual data format is very slow.
 Use the binary format for all arrays of more than a few hundred
 elements.
 
@@ -42,6 +42,10 @@ Since a file (or `str`, or `bytes`) can contain any number of Futhark
 values, the functions above all return generators.  Use `next` if you
 know for sure there is just a single value, and you want it (see
 example below).
+
+The functions automatically detect whether the data is encoded using
+the binary or textual format, so there is no need for the caller to
+specify.
 
 ## Examples
 
