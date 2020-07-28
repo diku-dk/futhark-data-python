@@ -17,6 +17,12 @@ The following Numpy types are supported: `np.int8`, `np.int16`,
 `np.uint64`, `np.float32`, `np.float64`, `np.bool`, as well as up to
 255-dimensional arrays containing elements of these sizes.
 
+## Installation
+
+```
+$ pip install --user futhark-data
+```
+
 ## API
 
 ### Serialising
@@ -50,6 +56,7 @@ specify.
 ## Examples
 
 ```Python
+>>> import futhark_data
 >>> for x in futhark_data.loads('[1,2,3] [4,5,6]'):
 ...     print(x)
 ...
