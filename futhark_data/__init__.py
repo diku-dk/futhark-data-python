@@ -493,7 +493,7 @@ decide based on the type of ``f``.
     if binary:
         f.write(construct_binary_value(v))
     else:
-        return dump_text(v, f)
+        dump_text(v, f)
 
 def dumps(v):
     """Returns the textual representation of the argument."""
