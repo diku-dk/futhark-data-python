@@ -4,7 +4,7 @@ This is a small Python library that implements reading and writing of
 the textual and [binary data
 format](https://futhark.readthedocs.io/en/latest/binary-data-format.html)
 used by Futhark executables and test tools.  It is intended to make it
-easy to write Python scripts that use Python libraries convert complex
+easy to write Python scripts that use Python libraries to convert complex
 formats (e.g. images, audio) into Futhark test data.  It provides
 functions that convert between Numpy values and textual/binary
 representations in the Futhark formats.  Comments are supported.
