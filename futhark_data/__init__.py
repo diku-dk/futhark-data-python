@@ -354,7 +354,7 @@ class Reader:
         return self.peek_char() == None
 
 def numpy_type_to_type_name(t):
-    for (k,v) in FUTHARK_PRIMTYPES.items():
+    for (k,v) in PRIMTYPES.items():
         if v['numpy_type'] == t:
             return k
     raise Exception('Unknown Numpy type: {}'.format(t))
