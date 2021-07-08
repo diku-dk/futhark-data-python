@@ -1,9 +1,10 @@
-import numpy as np
+import io
+import re
 import string
 import struct
 import sys
-import re
-import io
+
+import numpy as np
 
 __all__ = ['dump', 'dumps', 'dumpb', 'load', 'loads', 'loadb']
 
