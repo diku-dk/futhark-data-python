@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(name='futhark-data',
       version='1.0',
-      url='https://github.com/diku-dk/python-futhark-data',
+      url='https://github.com/diku-dk/futhark-data-python',
       license='ISC',
       author='Troels Henriksen',
       author_email='athas@sigkill.dk',
