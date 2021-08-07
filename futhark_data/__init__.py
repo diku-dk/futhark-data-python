@@ -51,6 +51,11 @@ PRIMTYPES = {
             'bin_format': 'Q',
             'numpy_type': np.uint64 },
 
+    'f16': {'binname' : b" f16",
+            'size' : 2,
+            'bin_format': 'e',
+            'numpy_type': np.float16 },
+
     'f32': {'binname' : b" f32",
             'size' : 4,
             'bin_format': 'f',
@@ -161,8 +166,8 @@ class Reader:
             self.unget_char(c)
 
     _INTEGER_REGEXP = re.compile(r'(-?[0-9][0-9_]*|-?0[xX][0-9a-fA-F][0-9a-fA-F_]*|-?0b[01][01_]+)(i8|u8|i16|u16|i32|u32|i64|u64)?')
-    _DECFLOAT_REGEXP = re.compile(r'(-?[0-9][0-9_]*(?:\.[0-9][0-9_]*)?(?:[eE][+-]?[0-9][0-9_]*)?)(f32|f64)?')
-    _HEXFLOAT_REGEXP = re.compile(r'(-?0[xX][0-9a-fA-F][0-9a-fA-F_]*\.[0-9a-fA-F][0-9a-fA-F_]*[pP][+-]?[0-9]+)(f32|f64)?')
+    _DECFLOAT_REGEXP = re.compile(r'(-?[0-9][0-9_]*(?:\.[0-9][0-9_]*)?(?:[eE][+-]?[0-9][0-9_]*)?)(f16|f32|f64)?')
+    _HEXFLOAT_REGEXP = re.compile(r'(-?0[xX][0-9a-fA-F][0-9a-fA-F_]*\.[0-9a-fA-F][0-9a-fA-F_]*[pP][+-]?[0-9]+)(f16|f32|f64)?')
 
     def token_value(self, tok):
         if not tok:
@@ -368,6 +373,7 @@ TYPE_STRS = { np.dtype('int8'): b'  i8',
               np.dtype('uint16'): b' u16',
               np.dtype('uint32'): b' u32',
               np.dtype('uint64'): b' u64',
+              np.dtype('float16'): b' f16',
               np.dtype('float32'): b' f32',
               np.dtype('float64'): b' f64',
               np.dtype('bool'): b'bool'}
@@ -442,6 +448,16 @@ def dump_text(v, f):
             f.write("true")
         else:
             f.write("false")
+    elif type(v) == np.float16:
+        if np.isnan(v):
+            f.write('f16.nan')
+        elif np.isinf(v):
+            if v >= 0:
+                f.write('f16.inf')
+            else:
+                f.write('-f16.inf')
+        else:
+            f.write("%.6ff16" % v)
     elif type(v) == np.float32:
         if np.isnan(v):
             f.write('f32.nan')
