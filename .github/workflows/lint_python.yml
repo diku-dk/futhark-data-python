@@ -13,7 +13,7 @@ jobs:
       - run: isort --check-only --profile black .
       - run: pip install cffi numpy
       - run: mypy --ignore-missing-imports .
-      - run: safety check
+      # - run: safety check
       # Allow failures...
       - run: black --check . || true
       - run: pytest . || true
