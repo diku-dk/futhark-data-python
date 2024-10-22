@@ -69,7 +69,7 @@ PRIMTYPES = {
     'bool': {'binname' : b"bool",
              'size' : 1,
              'bin_format': 'b',
-             'numpy_type': np.bool8 }
+             'numpy_type': np.bool_ }
 }
 
 def suffix_to_type(suffix):
