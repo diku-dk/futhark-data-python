@@ -35,7 +35,7 @@ jobs:
 
     - name: Install library
       run: |
-        python setup.py install
+        pip install .
 
   pip:
     runs-on: ubuntu-latest
