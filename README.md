@@ -14,7 +14,7 @@ elements.
 
 The following Numpy types are supported: `np.int8`, `np.int16`,
 `np.in32`, `np.int64`, `np.uint8`, `np.uint16`, `np.uint32`,
-`np.uint64`, `np.float32`, `np.float64`, `np.bool`, as well as up to
+`np.uint64`, `np.float32`, `np.float64`, `np.bool_`, as well as up to
 255-dimensional arrays containing elements of these sizes.
 
 ## Installation
